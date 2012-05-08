@@ -1,56 +1,53 @@
-class MailchimpGrailsPlugin {
-    // the plugin version
-    def version = "0.1"
-    // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "1.3.7 > *"
-    // the other plugins this plugin depends on
-    def dependsOn = [:]
-    // resources that are excluded from plugin packaging
-    def pluginExcludes = [
-            "grails-app/views/error.gsp"
-    ]
+import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+import co.happyinc.MailchimpService
 
-    // TODO Fill in these fields
-    def author = "Your name"
-    def authorEmail = ""
-    def title = "Plugin summary/headline"
-    def description = '''\\
-Brief description of the plugin.
+class MailchimpGrailsPlugin {
+	// the plugin version
+	def version = "0.0.2"
+	// the version or versions of Grails the plugin is designed for
+	def grailsVersion = "1.3.7 > *"
+	// the other plugins this plugin depends on
+	def dependsOn = [:]
+    def loadAfter = ['services']
+	// resources that are excluded from plugin packaging
+	def pluginExcludes = [
+			"grails-app/views/error.gsp"
+	]
+
+	// TODO Fill in these fields
+	def author = "Richard Marr"
+	def authorEmail = ""
+	def title = "Grails Mailchimp Plugin"
+	def description = '''\\
+Simple API wrapper for the Mailchimp API 1.3 and Mailchimp STS API 1.0
 '''
 
-    // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/mailchimp"
+	// URL to the plugin's documentation
+	def documentation = "http://grails.org/plugin/mailchimp"
 
-    def doWithWebDescriptor = { xml ->
-        // TODO Implement additions to web.xml (optional), this event occurs before 
-    }
-
-	def doWithSpring = {		
-		def apiUrl = CH.config.mailchimp.apiUrl ?: 'https://api.mailchimp.com:443/1.3/'
-		def encoding = CH.config.mailchimp.encoding ?: 'UTF-8'
-		
-		mailchimpService(MailchimpService) { 
-			apiKey = CH.config.mailchimp.apiKey
-			defaultListId = CH.config.mailchimp.defaultListId
-		}
+	def doWithWebDescriptor = { xml ->
+		// TODO Implement additions to web.xml (optional), this event occurs before 
 	}
 
-    def doWithDynamicMethods = { ctx ->
-        // TODO Implement registering dynamic methods to classes (optional)
-    }
+	def doWithSpring = {
+	}
 
-    def doWithApplicationContext = { applicationContext ->
-        // TODO Implement post initialization spring config (optional)
-    }
+	def doWithDynamicMethods = { ctx ->
+		// TODO Implement registering dynamic methods to classes (optional)
+	}
 
-    def onChange = { event ->
-        // TODO Implement code that is executed when any artefact that this plugin is
-        // watching is modified and reloaded. The event contains: event.source,
-        // event.application, event.manager, event.ctx, and event.plugin.
-    }
+	def doWithApplicationContext = { applicationContext ->
+		// TODO Implement post initialization spring config (optional)
+	}
 
-    def onConfigChange = { event ->
-        // TODO Implement code that is executed when the project configuration changes.
-        // The event is the same as for 'onChange'.
-    }
+	def onChange = { event ->
+		// TODO Implement code that is executed when any artefact that this plugin is
+		// watching is modified and reloaded. The event contains: event.source,
+		// event.application, event.manager, event.ctx, and event.plugin.
+	}
+
+	def onConfigChange = { event ->
+		// TODO Implement code that is executed when the project configuration changes.
+		// The event is the same as for 'onChange'.
+	}
 }
