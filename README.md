@@ -1,7 +1,7 @@
 Grails Mailchimp Plugin
 =======================
 
-A thin API wrapper for the *Mailchimp API 1.3* and *Mailchimp STS API 1.0*.
+A thin API wrapper for the [Mailchimp API 1.3](http://apidocs.mailchimp.com/api/1.3/) and [Mailchimp STS API 1.0](http://apidocs.mailchimp.com/sts/1.0/).
 
 Exposes a service for each API:
 
@@ -21,8 +21,8 @@ API reference:
 
 There are a lot of API methods so I suggest looking them up in the Mailchimp docs and checking in the appropriate Service method
 
- * Mailchimp API 1.3: http://apidocs.mailchimp.com/api/1.3/
- * Mailchimp STS API 1.0: http://apidocs.mailchimp.com/sts/1.0/
+ * [Mailchimp API 1.3](http://apidocs.mailchimp.com/api/1.3/)
+ * [Mailchimp STS API 1.0](http://apidocs.mailchimp.com/sts/1.0/)
 
 
 Examples
@@ -30,7 +30,7 @@ Examples
 
 API Endpoints are then exposed as service methods, each expecting at least a closure (depending on the required arguments of that method)
 
-Simple call
+**Simple call**
 
 ```groovy
 	mailchimpService.lists { res, json ->
@@ -39,7 +39,7 @@ Simple call
 	}		
 ```
 
-With an argument
+**With an argument** (check the Mailchimp API docs and relevant service method to see what the arguments should look like)
 
 ```groovy
 	mailchimpService.campaignsForEmail "some.email@address.com", { res, json ->
