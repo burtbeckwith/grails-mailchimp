@@ -1,5 +1,5 @@
 
-A simple API wrapper for the Mailchimp API and Mailchimp STS API.
+A simple API wrapper for the *Mailchimp API 1.3* and *Mailchimp STS API 1.0*.
 
 Exposes a service for each API:
 
@@ -12,8 +12,16 @@ In your Config.groovy you need the following lines:
 		mailchimp.apiKey = 'YOUR API KEY'
 		mailchimp.defaultListId = 'YOUR DEFAULT LIST ID'
 
+Mailchimp API reference:
+------------------------
+
+ * Mailchimp API 1.3: http://apidocs.mailchimp.com/api/1.3/
+ * Mailchimp STS API 1.0: http://apidocs.mailchimp.com/sts/1.0/
+
 Example
 -------
+
+API Endpoints are then exposed as service methods, each expecting at least a closure (depending on the required arguments of that method)
 
 		mailchimpService.lists { res, json ->
 			res.headers.each{ println it }
