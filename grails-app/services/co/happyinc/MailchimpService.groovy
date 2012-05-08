@@ -1,4 +1,4 @@
-package com.wimh
+package co.happyinc
 
 import groovyx.net.http.HTTPBuilder
 import static groovyx.net.http.ContentType.*
