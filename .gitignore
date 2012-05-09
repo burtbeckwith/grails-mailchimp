@@ -1,6 +1,7 @@
-.classpath
-.project
 .settings
-target
+/target/
 *.log
 *.iml
+grails-mailchimp-*.zip
+plugin.xml
+/web-app/
